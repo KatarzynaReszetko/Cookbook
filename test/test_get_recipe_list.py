@@ -37,12 +37,6 @@ class Testing(unittest.TestCase):
         recipe1 = (id_added_recipe1, name1, desc1)
         self.assertTrue(recipe1 in result_after_adding)
 
-## LUB:
-##        for recipe in result_after_adding:
-##            if recipe[0] == id_added_name1:
-##               self.assertEqual(name1, recipe[1])
-##               self.assertEqual(desc1, recipe[2])
-        
         self.assertEqual(quantity_after_adding - quantity_before_adding, 3)
 
         cur.execute("DELETE FROM cookbook WHERE id=%s", (id_added_recipe1,))
