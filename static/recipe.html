@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cookbook</title>
+    <style>
+    * {
+    box-sizing: border-box;
+    }
+    body {
+    font-family: Calibri;
+    background-color: HoneyDew;
+    }
+    header {
+    background-color: MediumSeaGreen;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    }
+    h2 {
+    text-align: center;
+    color: orange;
+    font-size: 35px;
+    }
+    p {
+    color: DarkGreen;
+    font-size: 25px;
+    }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h1>Cookbook</h1>
+</header>
+
+<h2 id="title"></h2>
+<p id="description"></p>
+
+<script>
+    var recipeId = location.search.split('p=')[1]
+    document.getElementById("title").innerHTML = `Recipe ${recipeId}`;
+    document.getElementById("description").innerHTML = `Description ${recipeId}`;
+</script>
+
+</body>
+</html>
