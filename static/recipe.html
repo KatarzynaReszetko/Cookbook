@@ -41,9 +41,15 @@
 <p id="description"></p>
 
 <script>
-    var recipeId = location.search.split('p=')[1]
-    document.getElementById("title").innerHTML = `Recipe ${recipeId}`;
-    document.getElementById("description").innerHTML = `Description ${recipeId}`;
+    var recipeId = location.search.split('id=')[1]
+
+    fetch(`http://127.0.0.1:5000/${recipeId}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("title").innerHTML = data.name
+            document.getElementById("description").innerHTML = data.description
+        })
+
 </script>
 
 </body>

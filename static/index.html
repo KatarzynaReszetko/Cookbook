@@ -56,12 +56,27 @@
 
 <h2>Recipe list:</h2>
   <nav>
-      <ul>
-          <li><a href="recipe.html?p=1">Recipe 1</a></li>
-          <li><a href="recipe.html?p=2">Recipe 2</a></li>
-          <li><a href="recipe.html?p=3">Recipe 3</a></li>
-      </ul>
+      <ul id="list"></ul>
   </nav>
+
+
+
+<script>
+    fetch(`http://127.0.0.1:5000/`)
+        .then(response => response.json())
+        .then(data => {
+                var ul = document.getElementById("list")
+                data.map(recipe => {
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.href = `recipe.html?id=${recipe.id}`;
+                    a.innerHTML = recipe.name;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                })
+        })
+
+</script>
 
 </body>
 </html>

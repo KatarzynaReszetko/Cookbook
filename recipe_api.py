@@ -4,6 +4,8 @@ from recipe import add_recipe, get_recipe_list, get_recipe
 
 app = Flask(__name__)
 
+HEADERS = {'Access-Control-Allow-Origin': '*'}
+
 
 @app.route('/')
 def recipe_list():
@@ -15,8 +17,7 @@ def recipe_list():
             description=recipe[2]
         )
         result.append(recipe_dict)
-    return jsonify(result)
-
+    return jsonify(result), 200, HEADERS
 
 
 @app.route('/<int:id_recipe>')
@@ -27,7 +28,7 @@ def recipe_details(id_recipe):
         name=recipe[0],
         description=recipe[1]
     )
-    return jsonify(recipe_dict)
+    return jsonify(recipe_dict), 200, HEADERS
 
 
 @app.route('/add', methods=['POST'])
