@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 from recipe import add_recipe, get_recipe_list, get_recipe
 
 app = Flask(__name__)
+CORS(app)
 
 HEADERS = {'Access-Control-Allow-Origin': '*'}
 
@@ -36,7 +38,7 @@ def recipe_id():
     name = request.json['name']
     desc = request.json['desc']
     id_recipe = add_recipe(name, desc)
-    return jsonify({'id': id_recipe})
+    return jsonify({'id': id_recipe}), 201, HEADERS
 
 
 if __name__ == '__main__':

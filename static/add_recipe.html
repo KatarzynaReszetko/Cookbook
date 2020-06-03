@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cookbook</title>
+    <style>
+    body {
+    font-family: Calibri;
+    background-color: HoneyDew;
+    }
+    .index {
+    margin: 0;
+    text-align: left;
+    font-size: 25px;
+    }
+    a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+    }
+    a:visited {
+    color: DodgerBlue;
+    background-color: transparent;
+    text-decoration: none;
+    }
+    a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+    }
+    h2 {
+    color: orange;
+    font-size: 35px;
+    text-align: center;
+    }
+    p {
+    color: DarkGreen;
+    font-size: 20px;
+    text-align: center;
+    }
+    textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    label {
+    display: block;
+    text-align: center;
+    color: DarkGreen;
+    font-size: 20px;
+    }
+    .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .child {
+    display: inline-block;
+    }
+    </style>
+</head>
+<body>
+
+<p class="index"><b><a href="index.html">Home Page</a></b></p>
+
+<h2>Add Your Recipe</h2>
+
+<form action="" method="post" id="addRecipe">
+    <p><b>Recipe name:</b><p>
+  <textarea name="myMessage1" rows="1" cols="80" required></textarea>
+    <p><b>Description:</b></p>
+  <textarea name="myMessage2" rows="15" cols="80" required></textarea><br>
+    <label for="myfile"><b>Add photo:</b></label>
+  <input class="center" type="file" id="myfile" name="myfile"><br><br>
+  <div class="parent">
+      <input class="child" type="submit" value="Submit">
+      <input class="child" type="reset" value="Reset">
+  </div>
+</form>
+
+<script>
+    async function handleFormSubmit(event) {
+        event.preventDefault();
+        var data = {
+            name: event.target[0].value,
+            desc: event.target[1].value
+        };
+        fetch("http://127.0.0.1:5000/add",
+            {
+                method: 'post',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                mode: 'cors'
+            }
+        ).catch(err => console.error(err))
+    }
+    var form = document.getElementById("addRecipe")
+    form.addEventListener("submit", handleFormSubmit);
+</script>
+
+</body>
+</html>

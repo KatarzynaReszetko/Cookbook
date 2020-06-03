@@ -14,10 +14,37 @@
     }
     header {
     background-color: MediumSeaGreen;
-    padding: 10px;
+    padding: 25px;
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     color: white;
+    }
+    .index, .add {
+    display: inline;
+    font-size: 25px;
+    }
+    .add {
+    margin: 0;
+    float:right;
+    }
+    .index {
+    margin: 0;
+    float: left;
+    }
+    a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+    }
+    a:visited {
+    color: DodgerBlue;
+    background-color: transparent;
+    text-decoration: none;
+    }
+    a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
     }
     h2 {
     text-align: center;
@@ -29,13 +56,16 @@
     font-size: 25px;
     }
     </style>
-
 </head>
 <body>
 
 <header>
     <h1>Cookbook</h1>
 </header>
+
+<p class="index"><b><a href="index.html">Home Page</a></b></p>
+<p class="add"><b><a href="add_recipe.html">Add Your Recipe</a></b></p>
+<br><br>
 
 <h2 id="title"></h2>
 <p id="description"></p>

@@ -19,10 +19,15 @@
     font-size: 40px;
     color: white;
     }
+    p {
+    margin: 0;
+    font-size: 25px;
+    text-align: right;
+    }
     h2 {
     text-align: center;
     color: orange;
-    font-size: 35px;
+    font-size: 38px;
     }
     ul {
     display: table;
@@ -44,7 +49,7 @@
     text-decoration: underline;
     }
     a {
-    font-size: 22px;
+    font-size: 25px;
     }
     </style>
 </head>
@@ -54,12 +59,12 @@
     <h1>Cookbook</h1>
 </header>
 
+<p><b><a href="add_recipe.html">Add Your Recipe</a></b></p>
+
 <h2>Recipe list:</h2>
   <nav>
       <ul id="list"></ul>
   </nav>
-
-
 
 <script>
     fetch(`http://127.0.0.1:5000/`)
@@ -75,7 +80,6 @@
                     ul.appendChild(li);
                 })
         })
-
 </script>
 
 </body>
