@@ -41,30 +41,38 @@
   <h2 style="text-align:center; margin-top:30px;">Recipe list:</h2>
 </div>
 
-<div class="card-columns">
-  <div class="card">
-    <img class="card-img-top" src="#" alt="Card image" style="width:100%">
-    <div class="card-body text-center">
-      <nav>
-        <ul id="list"></ul>
-      </nav>
-    </div>
-  </div>
-</div>
+<div class="card-columns"></div>
 
 
 <script>
     fetch(`http://127.0.0.1:5000/`)
         .then(response => response.json())
         .then(data => {
-                var ul = document.getElementById("list")
+                var cardColumns = document.getElementsByClassName("card-columns")[0];
                 data.map(recipe => {
-                    var li = document.createElement("li");
+                    var card = document.createElement("div");
+                    card.setAttribute("class", "card");
+
+                    var img = document.createElement("img");
+                    img.setAttribute("class", "card-img-top");
+                    img.setAttribute("src", "img/Asset_817968.jpg");
+                    img.setAttribute("alt", "Card image");
+                    img.style.width = "100%";
+
                     var a = document.createElement("a");
                     a.href = `recipe.html?id=${recipe.id}`;
-                    a.innerHTML = recipe.name;
-                    li.appendChild(a);
-                    ul.appendChild(li);
+                    if (recipe.name !== " ") {
+                      a.innerHTML = recipe.name;
+                    } else {
+                      a.innerHTML = "-";
+                    }
+                    var cardBody = document.createElement("div");
+                    cardBody.setAttribute("class", "card-body text-center");
+                    cardBody.appendChild(a);
+
+                    card.appendChild(img)
+                    card.appendChild(cardBody);
+                    cardColumns.appendChild(card);
                 })
         })
 </script>
