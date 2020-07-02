@@ -1,6 +1,12 @@
+.line {
+  width: 250px;
+}
 .carousel-inner img {
   width: 100%;
   height: 100%;
+}
+.carousel-inner {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .custom-file {
   width: 50%;
@@ -8,6 +14,51 @@
 .custom {
   width: 85px !important;
   }
+.card-body a:link {
+  color: #0a0f0f;
+  font-size: 20px;
+  font-weight: bold;
+}
+.card-body a:visited {
+  color: #0a0f0f;
+}
+.card-body a:hover {
+  color: #334d4d;
+}
+.container-sm {
+  margin-top:30px;
+}
+.header {
+  text-align:center;
+  margin-bottom:30px;
+}
+.text {
+  margin-top: 30px;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.last-3:link {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+.carousel-caption {
+  margin-bottom: 40px;
+}
+.last-3:visited {
+  color: white;
+}
+.last-3:hover {
+  color: #0a0f0f;
+}
+.navbar {
+  padding: 0;
+  margin: 0;
+}
+.nav-item {
+  font-size: 18px;
+}
 .scroll {
   color: #fff;
   margin-top: 100px
@@ -49,5 +100,5 @@
   background-color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0.8)
 }
 .height {
-  height: auto
+  height: auto;
 }
