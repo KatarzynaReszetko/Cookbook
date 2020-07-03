@@ -63,6 +63,15 @@
   color: #fff;
   margin-top: 100px
 }
+textarea {
+  border: 1px solid #ddd;
+  background-color: #eee;
+}
+textarea:focus {
+  outline: none !important;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px #719ECE;
+}
 #toTopBtn {
   position: fixed;
   bottom: 26px;

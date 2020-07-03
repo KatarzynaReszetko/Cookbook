@@ -70,6 +70,7 @@
 
                     var a = document.createElement("a");
                     a.href = `recipe.html?id=${recipe.id}`;
+                    a.setAttribute("class", "stretched-link");
                     if (recipe.name !== " ") {
                       a.innerHTML = recipe.name;
                     } else {

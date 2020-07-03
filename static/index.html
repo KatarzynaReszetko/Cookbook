@@ -50,26 +50,7 @@
       <li data-target="#demo" data-slide-to="2"></li>
     </ul>
 
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="img/Asset_817968.jpg" alt="photo1" width="1000" height="500">
-        <div class="carousel-caption">
-          <a class="last-3" href="#">Recipe1 name</a>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="img/Asset_817968.jpg" alt="photo2" width="1000" height="500">
-        <div class="carousel-caption">
-          <a class="last-3" href="#">Recipe2 name</a>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="img/Asset_817968.jpg" alt="photo3" width="1000" height="500">
-        <div class="carousel-caption">
-          <a class="last-3" href="#">Recipe3 name</a>
-        </div>
-      </div>
-    </div>
+    <div class="carousel-inner"></div>
 
     <a class="carousel-control-prev" href="#demo" data-slide="prev">
       <span class="carousel-control-prev-icon"></span>
@@ -91,17 +72,42 @@
 </div>
 
 <script>
-    fetch(`http://127.0.0.1:5000/`)
+    fetch(`http://127.0.0.1:5000/?limit=3`)
         .then(response => response.json())
         .then(data => {
-                var ul = document.getElementById("list")
-                data.map(recipe => {
-                    var li = document.createElement("li");
+                var ul = document.getElementsByClassName("carousel-inner")[0];
+                var isFirst = true;
+                data.reverse().map(recipe => {
+                    var carouselItem = document.createElement("div")
+
+                    if (isFirst) {
+                        carouselItem.setAttribute("class", "carousel-item active");
+                        isFirst = false;
+                    } else {
+                        carouselItem.setAttribute("class", "carousel-item");
+                    }
+
+                    var img = document.createElement("img");
+                    img.setAttribute("src", "img/Asset_817968.jpg");
+                    img.setAttribute("alt", "photo1");
+                    img.setAttribute("width", "1000");
+                    img.setAttribute("height", "500");
+
+                    carouselItem.appendChild(img);
+
+                    var carouselCaption = document.createElement("div")
+                    carouselCaption.setAttribute("class", "carousel-caption")
+
                     var a = document.createElement("a");
+                    a.setAttribute("class", "last-3");
                     a.href = `recipe.html?id=${recipe.id}`;
                     a.innerHTML = recipe.name;
-                    li.appendChild(a);
-                    ul.appendChild(li);
+                    carouselCaption.appendChild(a);
+
+                    carouselItem.appendChild(carouselCaption);
+
+                    ul.appendChild(carouselItem);
+
                 })
         })
 </script>

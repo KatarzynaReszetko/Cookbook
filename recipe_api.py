@@ -11,6 +11,7 @@ HEADERS = {'Access-Control-Allow-Origin': '*'}
 
 @app.route('/')
 def recipe_list():
+    limit = int(request.args.get("limit", 0))
     result = []
     for recipe in get_recipe_list():
         recipe_dict = dict(
@@ -19,6 +20,8 @@ def recipe_list():
             description=recipe[2]
         )
         result.append(recipe_dict)
+    if limit:
+        result = result[-limit:]
     return jsonify(result), 200, HEADERS
 
 
