@@ -53,15 +53,13 @@
       <textarea name="myMessage2" id="myMessage2" rows="15" cols="80" required></textarea>
     </div>
 
-    <p><b>Add photo:</b></p>
-    <div class="form-group custom-file">
-      <input type="file" class="custom-file-input" id="myfile" name="myfile"><br>
-      <label class="custom-file-label text-left" for="myfile">Choose file</label><br>
+    <div class="form-group">
+      <label for="myMessage3"><b>Add photo (web address):</b></label><br>
+      <textarea name="myMessage3" id="myMessage3" rows="3" cols="80"></textarea>
+    </div>
 
       <button type="submit" class="btn btn-secondary btn-sm custom">Submit</button>
       <button type="reset" class="btn btn-secondary btn-sm custom">Reset</button>
-    </div>
-
 
   </form>
 </div>
@@ -76,7 +74,8 @@
         event.preventDefault();
         var data = {
             name: event.target[0].value,
-            desc: event.target[1].value
+            desc: event.target[1].value,
+            photo: event.target[2].value
         };
         fetch("http://127.0.0.1:5000/add",
             {

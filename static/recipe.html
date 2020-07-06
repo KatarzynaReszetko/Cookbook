@@ -42,6 +42,7 @@
 
 <div class="container-sm">
   <h2 class="header" id="title" style="text-align: center"></h2>
+  <img src="" id="photo" class="mx-auto d-block" style="width:50%">
   <h4 class="text" id="description"></h4>
 
   <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"></a>
@@ -57,8 +58,15 @@
         .then(response => response.json())
         .then(data => {
             document.getElementById("title").innerHTML = data.name
+            if (data.photo) {
+              document.getElementById("photo").src = data.photo
+              } else {
+              document.getElementById("photo").src = "img/noimageavailable.png"
+            }
             document.getElementById("description").innerHTML = data.description
         })
+
+
 
 </script>
 

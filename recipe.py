@@ -6,8 +6,8 @@ cur.execute("CREATE TABLE IF NOT EXISTS cookbook (id serial PRIMARY KEY, recipe_
 conn.commit()
 
 
-def add_recipe(name, desc):
-    cur.execute("INSERT INTO cookbook (recipe_name, description) VALUES (%s, %s) RETURNING id", (name, desc))
+def add_recipe(name, desc, photo):
+    cur.execute("INSERT INTO cookbook (recipe_name, description, photo) VALUES (%s, %s, %s) RETURNING id", (name, desc, photo))
     conn.commit()
     return cur.fetchone()[0]
 
@@ -19,6 +19,6 @@ def get_recipe_list():
 
 
 def get_recipe(id_recipe):
-    cur.execute("SELECT recipe_name, description FROM cookbook WHERE id=%s", (id_recipe,))
+    cur.execute("SELECT recipe_name, description, photo FROM cookbook WHERE id=%s", (id_recipe,))
     result = cur.fetchone()
     return result

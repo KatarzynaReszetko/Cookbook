@@ -88,8 +88,11 @@
                     }
 
                     var img = document.createElement("img");
-<!--                    img.setAttribute("src", "img/nalesniki.jpg");-->
-                    img.setAttribute("src", recipe.photo_link);
+                    if (recipe.photo) {
+                      img.setAttribute("src", recipe.photo);
+                    } else {
+                      img.setAttribute("src", "img/noimageavailable.png");
+                    }
                     img.setAttribute("alt", "photo1");
                     img.setAttribute("width", "100%");
                     img.setAttribute("height", "100%");

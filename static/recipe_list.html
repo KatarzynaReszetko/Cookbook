@@ -41,9 +41,12 @@
 </nav>
 
 <div class="container-sm">
+
   <h2 class="header">Recipe list</h2>
 
   <div class="card-columns"></div>
+
+  <a href="add_recipe.html" class="button"><i class='fas fa-plus' style="font-size:48px;color:grey;margin-top:30px"></i></a>
 
   <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"></a>
   <div class="height">
@@ -63,8 +66,12 @@
                     card.setAttribute("class", "card");
 
                     var img = document.createElement("img");
+                    if (recipe.photo) {
+                      img.setAttribute("src", recipe.photo);
+                    } else {
+                      img.setAttribute("src", "img/noimageavailable.png");
+                    }
                     img.setAttribute("class", "card-img-top");
-                    img.setAttribute("src", "img/Asset_817968.jpg");
                     img.setAttribute("alt", "Card image");
                     img.style.width = "100%";
 
