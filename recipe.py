@@ -1,6 +1,7 @@
 import psycopg2
 
-conn = psycopg2.connect("dbname=postgres user=postgres password=postgres")
+# conn = psycopg2.connect("dbname=postgres user=postgres password=postgres")
+conn = psycopg2.connect("dbname=d5voqb9qc5gnc2 user=oumicejvjspnog host=ec2-52-204-232-46.compute-1.amazonaws.com password=e21795e43497d5e99097d2b6a1dc0f1efd38b2f78a2ac1ec0b5fd4b170877834")
 cur = conn.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS cookbook (id serial PRIMARY KEY, recipe_name varchar, description varchar);")
 conn.commit()
