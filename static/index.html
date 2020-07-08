@@ -21,12 +21,12 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <button class="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav text-right">
+    <ul class="navbar-nav text-right" style="margin-right: 10px;">
       <li class="nav-item">
         <a class="nav-link disabled" href="index.html"><i class='fas fa-home' style="font-size: 25px"></i></a>
       </li>
@@ -66,7 +66,7 @@
   <div id="d" class="collapse">katarzyna.reszetko@gmail.com</div>
 </div>
 
-<a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"></a>
+<a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true" data-toggle="tooltip" data-placement="left" title="Back To Top"></a>
 <div class="height">
     <h3 class="text-center scroll">Scroll down</h3>
 </div>
@@ -134,6 +134,13 @@ return false;
 });
 });
 </script>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
 
 </body>
 </html>

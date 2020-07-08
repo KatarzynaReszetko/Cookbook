@@ -21,12 +21,12 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <button class="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav text-right">
+    <ul class="navbar-nav text-right" style="margin-right: 10px;">
       <li class="nav-item">
         <a class="nav-link" href="index.html"><i class='fas fa-home' style='font-size:25px'></i></a>
       </li>
@@ -44,27 +44,27 @@
   <h2 class="header">Add Your Recipe</h2>
 
   <form action="" method="post" id="addRecipe" style="text-align:center">
-    <div class="form-group">
+    <div class="form-group" align="center">
       <label for="myMessage1"><b>Recipe name:</b></label><br>
-      <textarea name="myMessage1" id="myMessage1" rows="1" cols="80" required></textarea>
+      <textarea name="myMessage1" class="form-control" id="myMessage1" rows="1" cols="80" placeholder="Your recipe name..." required></textarea>
     </div>
-    <div class="form-group">
+    <div class="form-group" align="center">
       <label for="myMessage2"><b>Description:</b></label><br>
-      <textarea name="myMessage2" id="myMessage2" rows="15" cols="80" required></textarea>
+      <textarea name="myMessage2" class="form-control" id="myMessage2" rows="15" cols="80" placeholder="Your description..." required></textarea>
     </div>
 
-    <div class="form-group">
-      <label for="myMessage3"><b>Add photo (web address):</b></label><br>
-      <textarea name="myMessage3" id="myMessage3" rows="3" cols="80"></textarea>
+    <div class="form-group" align="center">
+      <label for="myMessage3"><b>Add photo:</b></label><br>
+      <textarea name="myMessage3" class="form-control" id="myMessage3" rows="2" cols="80" placeholder="Web address..." required></textarea>
     </div>
 
       <button type="submit" class="btn btn-secondary btn-sm custom">Submit</button>
-      <button type="reset" class="btn btn-secondary btn-sm custom">Reset</button>
+      <button type="reset" class="btn btn-secondary btn-sm custom">Clear</button>
 
   </form>
 </div>
 
-<a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true"></a>
+<a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true" data-toggle="tooltip" data-placement="left" title="Back To Top"></a>
 <div class="height">
     <h3 class="text-center scroll">Scroll down</h3>
 </div>
@@ -118,6 +118,13 @@ return false;
 });
 });
 </script>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
 
 </body>
 </html>
