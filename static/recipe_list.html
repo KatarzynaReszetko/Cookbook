@@ -57,7 +57,8 @@
 
 
 <script>
-    fetch(`http://127.0.0.1:5000/`)
+<!--    fetch(`http://127.0.0.1:5000/`)-->
+    fetch(`https://cookbook-page-heroku.herokuapp.com/`)
         .then(response => response.json())
         .then(data => {
                 var cardColumns = document.getElementsByClassName("card-columns")[0];

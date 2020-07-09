@@ -54,7 +54,8 @@
 <script>
     var recipeId = location.search.split('id=')[1]
 
-    fetch(`http://127.0.0.1:5000/${recipeId}`)
+<!--    fetch(`http://127.0.0.1:5000/${recipeId}`)-->
+    fetch(`https://cookbook-page-heroku.herokuapp.com/${recipeId}`)
         .then(response => response.json())
         .then(data => {
             document.getElementById("title").innerHTML = data.name
