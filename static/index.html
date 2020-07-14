@@ -80,7 +80,6 @@
                 var isFirst = true;
                 data.reverse().map(recipe => {
                     var carouselItem = document.createElement("div")
-
                     if (isFirst) {
                         carouselItem.setAttribute("class", "carousel-item active");
                         isFirst = false;
@@ -96,7 +95,7 @@
                     }
                     img.setAttribute("alt", "photo1");
                     img.setAttribute("width", "100%");
-                    img.setAttribute("height", "100%");
+                    img.setAttribute("height", "850px");
 
                     carouselItem.appendChild(img);
 
