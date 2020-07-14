@@ -1,9 +1,12 @@
 .line {
   width: 250px;
 }
+.container-sm {
+  margin-top: 30px;
+}
 .carousel-inner {
-margin-left: auto;
-margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (max-width: 600px) {
     .carousel-item>img {
@@ -30,24 +33,6 @@ margin-right: auto;
         max-height: 850px;
     }
 }
-Update 2019 - Bootstrap 4
-
-You can simply use the SASS mixin to change the number of cards across in each breakpoint / grid tier.
-
-.card-columns {
-  @include media-breakpoint-only(xl) {
-    column-count: 5;
-  }
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
-  }
-  @include media-breakpoint-only(md) {
-    column-count: 3;
-  }
-  @include media-breakpoint-only(sm) {
-    column-count: 2;
-  }
-}
 @media (min-width: 576px) {
     .card-columns {
         column-count: 1;
@@ -66,6 +51,31 @@ You can simply use the SASS mixin to change the number of cards across in each b
 @media (min-width: 1200px) {
     .card-columns {
         column-count: 3;
+    }
+}
+@media (max-width: 576px) {
+    .container-sm>img {
+        max-height: 130px;
+    }
+}
+@media (min-width: 576px) {
+    .container-sm>img {
+        max-height: 130px;
+    }
+}
+@media (min-width: 768px) {
+    .container-sm>img {
+        max-height: 260px;
+    }
+}
+@media (min-width: 992px) {
+    .container-sm>img {
+       max-height: 380px;
+    }
+}
+@media (min-width: 1200px) {
+    .container-sm>img {
+       max-height: 420px;
     }
 }
 .card:hover {
