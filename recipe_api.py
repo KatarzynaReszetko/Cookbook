@@ -17,8 +17,9 @@ def recipe_list():
         recipe_dict = dict(
             id=recipe[0],
             name=recipe[1],
-            description=recipe[2],
-            photo=recipe[3]
+            ingredients=recipe[2],
+            instructions=recipe[3],
+            photo=recipe[4]
         )
         result.append(recipe_dict)
     if limit:
@@ -32,8 +33,9 @@ def recipe_details(id_recipe):
     recipe_dict = dict(
         id=id_recipe,
         name=recipe[0],
-        description=recipe[1],
-        photo=recipe[2]
+        ingredients=recipe[1],
+        instructions=recipe[2],
+        photo=recipe[3]
     )
     return jsonify(recipe_dict), 200, HEADERS
 
@@ -41,9 +43,10 @@ def recipe_details(id_recipe):
 @app.route('/add', methods=['POST'])
 def recipe_id():
     name = request.json['name']
-    desc = request.json['desc']
+    ingr = request.json['ingr']
+    instr = request.json['instr']
     photo = request.json['photo']
-    id_recipe = add_recipe(name, desc, photo)
+    id_recipe = add_recipe(name, ingr, instr, photo)
     return jsonify({'id': id_recipe}), 201, HEADERS
 
 

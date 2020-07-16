@@ -41,9 +41,12 @@
 </nav>
 
 <div class="container-sm">
-  <h2 class="header" id="title" style="text-align: center"></h2>
-  <img src="" id="photo" class="mx-auto d-block" style="width: 50%; height: 420px">
-  <h4 class="text" id="description"></h4>
+  <h2 class="header" id="title"></h2>
+  <img src="" id="photo" class="mx-auto d-block" style="width: 50%; height: 420px;">
+  <h4 class="description-type"><b>Ingredients:</b></h4>
+  <h4 class="text" id="ingredients"></h4>
+  <h4 class="description-type"><b>Instructions:</b></h4>
+  <h4 class="text" id="instructions"></h4>
 
   <a href="#" id="toTopBtn" class="cd-top text-replace js-cd-top cd-top--is-visible cd-top--fade-out" data-abc="true" data-toggle="tooltip" data-placement="left" title="Back To Top"></a>
   <div class="height">
@@ -54,8 +57,8 @@
 <script>
     var recipeId = location.search.split('id=')[1]
 
-<!--    fetch(`http://127.0.0.1:5000/${recipeId}`)-->
-    fetch(`https://cookbook-page-heroku.herokuapp.com/${recipeId}`)
+<!--        fetch(`http://127.0.0.1:5000/${recipeId}`)-->
+        fetch(`https://cookbook-page-heroku.herokuapp.com/${recipeId}`)
         .then(response => response.json())
         .then(data => {
             document.getElementById("title").innerHTML = data.name
@@ -64,11 +67,9 @@
               } else {
               document.getElementById("photo").src = "img/noimageavailable.png"
             }
-            document.getElementById("description").innerHTML = data.description
+            document.getElementById("ingredients").innerHTML = data.ingredients
+            document.getElementById("instructions").innerHTML = data.instructions
         })
-
-
-
 </script>
 
 <script>
