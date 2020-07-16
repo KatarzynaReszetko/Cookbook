@@ -19,12 +19,10 @@ def add_recipe(name, ingr, instr, photo):
 def get_recipe_list():
     cur.execute("SELECT * FROM cookbook")
     result = cur.fetchall()
-    print(result)
     return result
 
 
 def get_recipe(id_recipe):
     cur.execute("SELECT recipe_name, ingredients, instructions, photo FROM cookbook WHERE id=%s", (id_recipe,))
     result = cur.fetchone()
-    print(result)
     return result
